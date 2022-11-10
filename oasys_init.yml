@@ -1,0 +1,17 @@
+- name: Install 
+  hosts: "{{ host }}"
+  tasks:
+
+    - name: Temporarly run a docker 
+      community.docker.docker_container:
+        name: "{{ container_name }}"
+        image: "{{ source_image_name }}"
+        entrypoint: "{{ entrypoint_override }}"
+        detach: yes
+        interactive: yes
+        tty: yes
+        volumes: 
+          - "{{ oasys_geth_volume }}:{{ container_mount_point }}"
+        
+
+        
