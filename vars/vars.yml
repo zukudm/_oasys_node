@@ -15,6 +15,9 @@ prepare_command_list:
   - sh -c "echo '[ \"enode://4a85df39ec500acd31d4b9feeea1d024afee5e8df4bc29325c2abf2e0a02a34f6ece24aca06cb5027675c167ecf95a9fc23fb7a0f671f84edb07dafe6e729856@35.77.156.6:30303\" ]' > /root/.ethereum/geth/static-nodes.json"
   - sh -c "echo Kva123! > /root/.ethereum/password.txt"
   - sh -c "geth account new --password $HOME/.ethereum/password.txt >$HOME/.ethereum/wallet.txt"
+  - sh -c " str'i'ng" 
   
 single_command1:
-  - sh -c "grep -a 'Public address of the key: ' /root/.ethereum/wallet.txt | sed -r 's/Public address of the key: //'"
+  - sh -c "grep -a 'Public address of the key' /root/.ethereum/wallet.txt | awk '{ print $NF }' "
+  
+
