@@ -10,7 +10,7 @@
       community.docker.docker_container:
         name: "{{ container_name }}"
         image: "{{ source_image_name }}"
-        entrypoint: "{{ shell_cmd }}"
+        entrypoint: "{{ entrypoint_cmd }}"
         detach: yes
         interactive: yes
         tty: yes
