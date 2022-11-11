@@ -2,7 +2,7 @@
 container_name: oasys_geth
 volume_name: oasys_geth_volume
 source_image_name: ethereum/client-go:stable
-shell_cmd: /bin/sh
+shell_cmd: /bin/sh -c 
 container_mount_point: /root/
 
 # vars for preparing before start
@@ -19,5 +19,8 @@ prepare_command_list:
   
 single_command1:
   - grep -a 'Public address of the key' /root/.ethereum/wallet.txt | awk '{ print $NF }' 
+
+test_list:
+  - 
 
 
