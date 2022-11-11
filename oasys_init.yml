@@ -14,7 +14,7 @@
         interactive: yes
         tty: yes
         volumes: 
-          - "{{ oasys_geth_volume }}:{{ container_mount_point }}"
+          - "{{ volume_name }}:{{ container_mount_point }}"
         
 
         
