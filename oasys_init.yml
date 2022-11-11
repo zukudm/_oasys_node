@@ -20,7 +20,8 @@
     - name: Some preparation before start
       community.docker.docker_container_exec:
         container: "{{ container_name }}"
-        command: "{{ shell_cmd }} {{ prepare_command_list }}"
+        command: "{{ shell_cmd }} {{ item }}"
+      loop: "{{ prepare_command_list }} "
 
     - name: Find required string and save it
       community.docker.docker_container_exec:  
