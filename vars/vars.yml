@@ -2,7 +2,7 @@
 container_name: oasys_geth
 volume_name: oasys_geth_volume
 source_image_name: ethereum/client-go:stable
-shell_cmd: /bin/sh -c 
+shell_cmd: sh -c 
 container_mount_point: /root/
 
 # vars for preparing before start
