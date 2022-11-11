@@ -10,7 +10,7 @@
       community.docker.docker_container:
         name: "{{ container_name }}"
         image: "{{ source_image_name }}"
-        entrypoint: "{{ entrypoint_override }}"
+        entrypoint: "{{ shell_cmd }}"
         detach: yes
         interactive: yes
         tty: yes
@@ -20,12 +20,12 @@
     - name: Some preparation before start
       community.docker.docker_container_exec:
         container: "{{ container_name }}"
-        loop: "{{ prepare_command_list }}"
+        command: "{{ shell_cmd }} {{ prepare_command_list }}"
 
     - name: Find required string and save it
       community.docker.docker_container_exec:  
         container: "{{ container_name }}"
-        command: "{{ single_command1 }}"
+        command: "{{ shell_cmd }} {{ single_command1 }}"
       register: result
 
     - name: Print stderr lines
