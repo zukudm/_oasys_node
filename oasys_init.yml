@@ -4,9 +4,9 @@
   hosts: "{{ host }}"
   gather_facts: no
   become: yes
-  vars_prompt:
-    - name: password1
-      prompt: What is your password?
+  # vars_prompt:
+  #   - name: password1
+  #     prompt: What is your password?
 
   tasks:
 
