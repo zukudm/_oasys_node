@@ -36,7 +36,7 @@ final_command_list: >
   --syncmode full --gcmode archive
   --mine --miner.gaslimit 30000000
   --allow-insecure-unlock
-  --unlock 0x6204866e39f7188fffa27da1e41135077adaAAA7
+  --unlock {{ out.output }}
   --password /root/.ethereum/password.txt
   --http --http.addr 0.0.0.0 --http.port 8545
   --http.vhosts '*' --http.corsdomain '*'
