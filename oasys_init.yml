@@ -29,12 +29,13 @@
     - name: Find required string and save it
       community.docker.docker_container_exec:  
         container: "{{ container_name }}"
-        command: sh -c "grep -a 'Public address of the key' /root/.ethereum/wallet.txt | awk '{ print $NF }'"
+        command: sh -c {{ item }}
       register: result
+      with_items: {{ single_command1 }}
 
     - name: Print stderr lines
       debug:
-        var: result
+        var: result.stdout
 
         
 
