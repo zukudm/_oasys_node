@@ -29,7 +29,7 @@
     - name: Find required string and save it
       community.docker.docker_container_exec:  
         container: "{{ container_name }}"
-        command: " sh -c  {{ single_command1 }} "
+        command: sh -c  " {{ single_command1 }} "
       register: out
     #  with_items: "{{ single_command1 }}"
 
