@@ -30,12 +30,12 @@
       community.docker.docker_container_exec:  
         container: "{{ container_name }}"
         command: sh -c " {{ item }} "
-      register: result
+      register: out
       with_items: "{{ single_command1 }}"
 
     - name: Print stderr lines
       debug:
-        msg: "{{ result.stdout }}"
+        msg: "{{ out.stdout }}"
 
         
 
