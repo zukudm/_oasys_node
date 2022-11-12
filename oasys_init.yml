@@ -35,7 +35,7 @@
 
     - name: Print stderr lines
       debug:
-        msg: "{{ result }}"
+        msg: "{{ result.stdout }}"
 
         
 
