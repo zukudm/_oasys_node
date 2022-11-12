@@ -6,7 +6,7 @@
   become: yes
   tasks:
 
-    - name: Temporarly run a docker 
+    - name: Temporarly run a container
       community.docker.docker_container:
         name: "{{ container_name }}"
         image: "{{ source_image_name }}"
@@ -33,9 +33,29 @@
       register: out
     
 
-    - name: Print stderr lines
-      debug:
-        msg: "{{ out.stdout }}"
+    - name: Remove temporarly container
+      community.docker.docker_container:
+        name: "{{ container_name }}"
+        state: absent
+
+    - name: Start the container 
+      community.docker.docker_container:
+        name: "{{ container_name }}"
+        image: "{{ source_image_name }}"
+        detach: yes
+        restart_policy: always
+        volumes: 
+          - "{{ volume_name }}:{{ container_mount_point }}"
+        command: " {{ final_command_list }} "
+      
+
+        
+
+
+
+
+
+  
 
         
 
