@@ -31,6 +31,10 @@
         container: "{{ container_name }}"
         command: sh -c " {{ single_command1 }} " 
       register: out
+
+    - name: print item
+      debug:
+        msg: "{{ out.output }}"
     
 
     - name: Remove temporarly container
