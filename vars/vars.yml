@@ -15,7 +15,6 @@ prepare_command_list:
   - curl -o /root/genesis.json https://raw.githubusercontent.com/oasysgames/oasys-validator/main/genesis/testnet.json
   - geth init /root/genesis.json
   - echo '[ \"enode://4a85df39ec500acd31d4b9feeea1d024afee5e8df4bc29325c2abf2e0a02a34f6ece24aca06cb5027675c167ecf95a9fc23fb7a0f671f84edb07dafe6e729856@35.77.156.6:30303\" ]' > /root/.ethereum/geth/static-nodes.json
- # - echo Kva123! > /root/.ethereum/password.txt
   - geth account new --password $HOME/.ethereum/password.txt >$HOME/.ethereum/wallet.txt
 
 
