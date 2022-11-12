@@ -21,7 +21,7 @@
       community.docker.docker_container_exec:
         container: "{{ container_name }}"
         command: "{{ shell_cmd }} {{ item }}"
-      loop: "{{ test_list }} "
+      with_items: "{{ test_list }} "
         
 
     - name: Find required string and save it
