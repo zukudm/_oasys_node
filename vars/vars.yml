@@ -8,9 +8,10 @@ password: Kva1234!
 password_file_location: /root/.ethereum/password.txt
 
 # vars for preparing before start
+prepare_init_command_list: 
+  - mkdir -p /root/.ethereum/geth/
 
 prepare_command_list:
-  - mkdir -p /root/.ethereum/geth/
   - apk --no-cache add curl
   - curl -o /root/genesis.json https://raw.githubusercontent.com/oasysgames/oasys-validator/main/genesis/testnet.json
   - geth init /root/genesis.json
