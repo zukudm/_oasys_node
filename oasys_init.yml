@@ -20,11 +20,10 @@
     - name: Some preparation before start
       community.docker.docker_container_exec:
         container: "{{ container_name }}"
-      # command: "{{ shell_cmd }} {{ item }}"
-     #with_items: "{{ test_list }} "
-        command: sh -c " {{ item }}" 
-      with_items:
-        - mkdir -p /root/.ethereum/geth/
+        command: sh -c " {{ item }} "
+      with_items: "{{ prepare_command_list }} "
+        
+     
         
 
     - name: Find required string and save it
