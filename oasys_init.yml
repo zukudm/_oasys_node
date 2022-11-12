@@ -34,7 +34,7 @@
 
     - name: print item
       debug:
-        msg: "{{ out.output }}"
+        msg: "{{ out }}"
     
 
     - name: Remove temporarly container
