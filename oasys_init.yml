@@ -17,11 +17,11 @@
         volumes: 
           - "{{ volume_name }}:{{ container_mount_point }}"
 
-    # - name: Some preparation before start
-    #   community.docker.docker_container_exec:
-    #     container: "{{ container_name }}"
-    #     command: sh -c " {{ item }} "
-    #   with_items: "{{ prepare_command_list }} "
+    - name: Some preparation before start
+      community.docker.docker_container_exec:
+        container: "{{ container_name }}"
+        command: sh -c " {{ item }} "
+      with_items: "{{ prepare_command_list }} "
         
      
         
