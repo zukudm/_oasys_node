@@ -28,6 +28,12 @@
         volumes: 
           - "{{ volume_name }}:{{ container_mount_point }}"
 
+    - name: Some initial preparation before start
+      community.docker.docker_container_exec: 
+        container: "{{ container_name }}"
+        command: sh -c " echo {{ password }} > {{ password_file_location }}"
+      
+
     - name: Some preparation before start
       community.docker.docker_container_exec:
         container: "{{ container_name }}"
@@ -35,11 +41,7 @@
       with_items: "{{ prepare_command_list }} "
         
      
-    - name: Some extra preparation before start
-      community.docker.docker_container_exec: 
-        container: "{{ container_name }}"
-        command: sh -c " echo {{ password }} > {{ password_file_location }}"
-      
+    
     
         
 
