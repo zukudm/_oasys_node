@@ -17,7 +17,7 @@ prepare_command_list:
   - geth account new --password $HOME/.ethereum/password.txt >$HOME/.ethereum/wallet.txt
   
   
-single_command1: sh -c grep -a 'Public address of the key' /root/.ethereum/wallet.txt | awk '{ print $NF }'
+single_command1: grep -a 'Public address of the key' /root/.ethereum/wallet.txt | awk '{ print $NF }'
 
 test_list:
   - "mkdir -p /root/.ethereum/geth/"
