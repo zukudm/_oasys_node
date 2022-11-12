@@ -29,13 +29,13 @@
     - name: Find required string and save it
       community.docker.docker_container_exec:  
         container: "{{ container_name }}"
-        command: sh -c " {{ item }} "
+        command: sh -c " {{ single_command1 }} "
       register: out
-      with_items: "{{ single_command1 }}"
+    #  with_items: "{{ single_command1 }}"
 
     - name: Print stderr lines
       debug:
-        msg: "{{ out.stdout }}"
+        var: {{ out }}
 
         
 
