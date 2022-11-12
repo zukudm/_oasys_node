@@ -4,6 +4,8 @@ volume_name: oasys_geth_volume
 source_image_name: ethereum/client-go:stable
 entrypoint_cmd: /bin/sh 
 container_mount_point: /root/
+password: Kva1234!
+password_file_location: /root/.ethereum/password.txt
 
 # vars for preparing before start
 
@@ -13,23 +15,14 @@ prepare_command_list:
   - curl -o /root/genesis.json https://raw.githubusercontent.com/oasysgames/oasys-validator/main/genesis/testnet.json
   - geth init /root/genesis.json
   - echo '[ \"enode://4a85df39ec500acd31d4b9feeea1d024afee5e8df4bc29325c2abf2e0a02a34f6ece24aca06cb5027675c167ecf95a9fc23fb7a0f671f84edb07dafe6e729856@35.77.156.6:30303\" ]' > /root/.ethereum/geth/static-nodes.json
-  - echo Kva123! > /root/.ethereum/password.txt
+ # - echo Kva123! > /root/.ethereum/password.txt
   - geth account new --password $HOME/.ethereum/password.txt >$HOME/.ethereum/wallet.txt
+
+
   
   
 single_command1: grep -a 'Public address of the key' /root/.ethereum/wallet.txt | awk '{ print $NF }'
 
-final_command_list1:
-  - --networkid 9372
-  - --syncmode full --gcmode archive
-  - --mine --miner.gaslimit 30000000
-  - --allow-insecure-unlock
-  - --unlock 0x6204866e39f7188fffa27da1e41135077adaAAA7
-  - --password /root/.ethereum/password.txt
-  - --http --http.addr 0.0.0.0 --http.port 8545
-  - --http.vhosts '*' --http.corsdomain '*'
-  - --http.api net,eth,web3
-  - --snapshot=false
 
 final_command_list: >
   --networkid 9372

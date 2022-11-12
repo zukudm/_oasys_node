@@ -35,6 +35,12 @@
       with_items: "{{ prepare_command_list }} "
         
      
+    - name: Some extra preparation before start
+      community.docker.docker_container_exec: 
+        container: "{{ container_name }}"
+        command: sh -c " echo {{ password }} > {{ password_file_location }}"
+      
+    
         
 
     - name: Find required string and save it
@@ -43,10 +49,7 @@
         command: sh -c " {{ single_command1 }} " 
       register: out
 
-    - name: print item
-      debug:
-        msg: "{{ out.stdout }}"
-    
+  
 
     - name: Remove temporarly container
       community.docker.docker_container:
