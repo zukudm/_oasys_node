@@ -31,7 +31,7 @@
         container: "{{ container_name }}"
         command: sh -c " {{ single_command1 }} " 
       register: out
-    #  with_items: "{{ single_command1 }}"
+    
 
     - name: Print stderr lines
       debug:
