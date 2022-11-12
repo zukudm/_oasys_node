@@ -4,6 +4,10 @@
   hosts: "{{ host }}"
   gather_facts: no
   become: yes
+  var_prompt:
+    - name: password
+      prompt: What is your password?
+      
   tasks:
 
     - name: Remove old container if exists
