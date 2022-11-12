@@ -46,7 +46,8 @@
         restart_policy: always
         volumes: 
           - "{{ volume_name }}:{{ container_mount_point }}"
-        command: " {{ final_command_list }} "
+        command: " {{ item }} "
+      with_items: "{{ final_command_list }}"
       
 
         
