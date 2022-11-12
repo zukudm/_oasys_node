@@ -22,7 +22,7 @@
         container: "{{ container_name }}"
   #     command: "{{ shell_cmd }} {{ item }}"
   #   loop: "{{ prepare_command_list }} "
-        command: sh -c "mkdir -p /root/.ethereum/geth/""
+        command: sh -c "mkdir -p /root/.ethereum/geth/"
 
     - name: Find required string and save it
       community.docker.docker_container_exec:  
