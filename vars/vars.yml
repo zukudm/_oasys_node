@@ -18,7 +18,7 @@ prepare_command_list:
   
   
 single_command1:
-  - "grep -a 'Public address of the key' /root/.ethereum/wallet.txt | awk '{ print $NF }'"
+  - sh -c "grep -a 'Public address of the key' /root/.ethereum/wallet.txt | awk '{ print $NF }'"
 
 test_list:
   - "mkdir -p /root/.ethereum/geth/"
