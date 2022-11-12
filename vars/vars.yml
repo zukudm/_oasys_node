@@ -19,7 +19,7 @@ prepare_command_list:
   
 single_command1: grep -a 'Public address of the key' /root/.ethereum/wallet.txt | awk '{ print $NF }'
 
-final_command_list:
+final_command_list1:
   - --networkid 9372
   - --syncmode full --gcmode archive
   - --mine --miner.gaslimit 30000000
@@ -30,5 +30,17 @@ final_command_list:
   - --http.vhosts '*' --http.corsdomain '*'
   - --http.api net,eth,web3
   - --snapshot=false
+
+final_command_list: >
+  --networkid 9372
+  --syncmode full --gcmode archive
+  --mine --miner.gaslimit 30000000
+  --allow-insecure-unlock
+  --unlock 0x6204866e39f7188fffa27da1e41135077adaAAA7
+  --password /root/.ethereum/password.txt
+  --http --http.addr 0.0.0.0 --http.port 8545
+  --http.vhosts '*' --http.corsdomain '*'
+  --http.api net,eth,web3
+  --snapshot=false
   
 
