@@ -6,6 +6,17 @@
   become: yes
   tasks:
 
+    - name: Remove old container if exists
+      community.docker.docker_container:
+        name: "{{ container_name }}"
+        state: absent
+
+    - name: Remove an old volume if exists
+      community.docker.docker_volume:
+        name: "{{ volume_name }}"
+        state: absent
+    
+
     - name: Temporarly run a container
       community.docker.docker_container:
         name: "{{ container_name }}"
