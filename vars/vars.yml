@@ -4,7 +4,7 @@ volume_name: oasys_geth_volume
 source_image_name: ethereum/client-go:stable
 entrypoint_cmd: /bin/sh 
 container_mount_point: /root/
-password: Kva1234!
+#password: Kva1234!
 password_file_location: /root/.ethereum/password.txt
 
 # vars for preparing before start
