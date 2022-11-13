@@ -1,6 +1,6 @@
 - name: Run Install from cli
   
-  
+  hosts: "{{ host }}"
   gather_facts: no
   become: yes
   vars_prompt:
