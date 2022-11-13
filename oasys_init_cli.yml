@@ -12,4 +12,4 @@
   tasks:
 
     - name: Run main task
-      include_tasks: "oasys_init.yaml"
+      include_tasks: "oasys_init.yml"
